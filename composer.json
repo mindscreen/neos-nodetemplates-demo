@@ -1,9 +1,10 @@
 {
     "description": "Different Node Template examples, based on demo site.",
     "type": "neos-package",
-    "name": "mindscreen/nodetemplates-demo",
+    "name": "mindscreen/neos-nodetemplates-demo",
     "require": {
         "neos/neos-ui": "*",
-        "neos/demo": "*"
+        "neos/demo": "*",
+        "flowpack/neos-nodetemplates": "*"
     }
 }

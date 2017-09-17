@@ -1,0 +1,103 @@
+'Neos.NodeTypes:Page':
+  ui:
+    creationDialog:
+      elements:
+        showHelloWorld:
+          type: boolean
+          ui:
+            label: 'Show hello world'
+            editor: 'Neos.Neos/Inspector/Editors/BooleanEditor'
+        createMultipleTextNodes:
+          type: boolean
+          ui:
+            label: 'Create multiple text nodes'
+            editor: 'Neos.Neos/Inspector/Editors/BooleanEditor'
+        createSubPage:
+          type: boolean
+          ui:
+            label: 'Create sub-page'
+            editor: 'Neos.Neos/Inspector/Editors/BooleanEditor'
+  options:
+    template:
+      childNodes:
+        boilerplateChildDocument:
+          type: 'Neos.NodeTypes:Page'
+          properties:
+            title: 'Boilerplate child document node'
+          childNodes:
+            mainContentCollection:
+              name: 'main'
+              childNodes:
+                infoTextNode:
+                  type: 'Neos.NodeTypes:Text'
+                  properties:
+                    text: '${"<p>This page has been created automatically via a node template when the page <a href=\"node://" + triggeringNode.identifier + "\">" + data.title + "</a> has been created.</p>"}'
+          when: '${data.createSubPage}'
+        mainContentCollection:
+          name: 'main'
+          childNodes:
+            conditionedHelloWorldTextNode:
+              type: 'Neos.NodeTypes:Text'
+              properties:
+                text: '<p>Hello world!</p>'
+              when: '${data.showHelloWorld}'
+            multipleTextNodes:
+              type: 'Neos.NodeTypes:Text'
+              properties:
+                text: '${"<p>" + item + " item text" + "</p>"}'
+              withItems:
+                - 'First'
+                - 'Second'
+              when: '${data.createMultipleTextNodes}'
+
+'Mindscreen.NodeTemplates.Demo:ColumnTemplateMixin':
+  options:
+    template:
+      childNodes:
+        columns:
+          name: '${"column" + item}'
+          childNodes:
+            heading:
+              type: 'Neos.NodeTypes:Headline'
+              properties:
+                title: '<h2>Heading</h2>'
+            text:
+              type: 'Neos.NodeTypes:Text'
+              properties:
+                text: '<p>Column Text</p>'
+
+'Neos.NodeTypes:TwoColumn':
+  superTypes:
+    'Mindscreen.NodeTemplates.Demo:ColumnTemplateMixin': true
+  options:
+    template:
+      childNodes:
+        columns:
+          withItems:
+            - '0'
+            - '1'
+
+'Neos.NodeTypes:ThreeColumn':
+  superTypes:
+    'Mindscreen.NodeTemplates.Demo:ColumnTemplateMixin': true
+  options:
+    template:
+      childNodes:
+        columns:
+          withItems:
+            - '0'
+            - '1'
+            - '2'
+
+'Neos.NodeTypes:FourColumn':
+  superTypes:
+    'Mindscreen.NodeTemplates.Demo:ColumnTemplateMixin': true
+  options:
+    template:
+      childNodes:
+        columns:
+          withItems:
+            - '0'
+            - '1'
+            - '2'
+            - '3'

@@ -5,6 +5,6 @@
     "require": {
         "neos/neos-ui": "*",
         "neos/demo": "*",
-        "flowpack/neos-nodetemplates": "*"
+        "flowpack/nodetemplates": "*"
     }
 }

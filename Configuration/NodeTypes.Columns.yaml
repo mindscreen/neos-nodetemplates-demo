@@ -1,0 +1,36 @@
+'Neos.NodeTypes.ColumnLayouts:Column':
+  options:
+    template:
+      childNodes:
+        columns:
+          name: '${"column" + item}'
+          childNodes:
+            heading:
+              type: 'Neos.NodeTypes:Headline'
+              properties:
+                title: '<h2>Heading</h2>'
+            text:
+              type: 'Neos.NodeTypes:Text'
+              properties:
+                text: '<p>Column Text</p>'
+
+'Neos.NodeTypes:TwoColumn':
+  options:
+    template:
+      childNodes:
+        columns:
+          withItems: '${Array.range(0, 1)}'
+
+'Neos.NodeTypes:ThreeColumn':
+  options:
+    template:
+      childNodes:
+        columns:
+          withItems: '${Array.range(0, 2)}'
+
+'Neos.NodeTypes:FourColumn':
+  options:
+    template:
+      childNodes:
+        columns:
+          withItems: '${Array.range(0, 3)}'

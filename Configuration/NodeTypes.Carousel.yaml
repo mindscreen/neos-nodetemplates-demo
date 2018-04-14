@@ -1,0 +1,22 @@
+'Neos.Demo:Carousel':
+  ui:
+    creationDialog:
+      elements:
+        images:
+          type: 'array<Neos\Media\Domain\Model\ImageInterface>'
+          ui:
+            editor: 'Neos.Neos/Inspector/Editors/AssetEditor'
+            label: 'Images'
+            editorOptions:
+              multiple: true
+  options:
+    template:
+      childNodes:
+        carouselItems:
+          name: 'carouselItems'
+          childNodes:
+            image:
+              type: 'Neos.NodeTypes:Image'
+              properties:
+                image: ${item}
+              withItems: '${data.images}'

@@ -1,0 +1,36 @@
+'Mindscreen.Neos.NodeTemplatesDemo:EditorialTemplate':
+  superTypes:
+    'Neos.NodeTypes:Page': true
+  ui:
+    group: 'nodeTemplatesDemo'
+    label: 'Editorial Template'
+    icon: 'icon-copy'
+    help:
+     message: 'In the editorial template you can define texts that are used in node templates.'
+    creationDialog:
+      elements:
+        editorialTextNodeIdentifier: ~
+
+'Mindscreen.Neos.NodeTemplatesDemo:PageBasedOnTemplate':
+  superTypes:
+    'Neos.NodeTypes:Page': true
+  ui:
+    group: 'nodeTemplatesDemo'
+    label: 'Page based on template'
+    creationDialog:
+      elements:
+        editorialTemplateNodeIdentifier:
+          type: reference
+          ui:
+            label: 'Editorial template'
+            editor: 'Neos.Neos/Inspector/Editors/ReferenceEditor'
+            editorOptions:
+              nodeTypes: ['Mindscreen.Neos.NodeTemplatesDemo:EditorialTemplate']
+  options:
+    template:
+      when: '${data.editorialTemplateNodeIdentifier}'
+      childNodes:
+        mainContentCollection:
+          name: 'main'
+          options:
+            childNodesToCopy: '${q(node).find("#" + data.editorialTemplateNodeIdentifier).children("main").children().get()}'

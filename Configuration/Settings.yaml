@@ -1,0 +1,8 @@
+Neos:
+  Neos:
+    nodeTypes:
+      groups:
+        nodeTemplatesDemo:
+          position: 50
+          label: 'Node Templates Demo'
+          collapsed: false

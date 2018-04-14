@@ -1,5 +1,9 @@
-'Neos.NodeTypes:Page':
+'Mindscreen.Neos.NodeTemplatesDemo:Page':
+  superTypes:
+    'Neos.NodeTypes:Page': true
   ui:
+    title: 'Node Templates Demo Page'
+    group: 'nodeTemplatesDemo'
     creationDialog:
       elements:
         showHelloWorld:
@@ -49,55 +53,3 @@
                 - 'First'
                 - 'Second'
               when: '${data.createMultipleTextNodes}'
-
-'Mindscreen.NodeTemplates.Demo:ColumnTemplateMixin':
-  options:
-    template:
-      childNodes:
-        columns:
-          name: '${"column" + item}'
-          childNodes:
-            heading:
-              type: 'Neos.NodeTypes:Headline'
-              properties:
-                title: '<h2>Heading</h2>'
-            text:
-              type: 'Neos.NodeTypes:Text'
-              properties:
-                text: '<p>Column Text</p>'
-
-'Neos.NodeTypes:TwoColumn':
-  superTypes:
-    'Mindscreen.NodeTemplates.Demo:ColumnTemplateMixin': true
-  options:
-    template:
-      childNodes:
-        columns:
-          withItems:
-            - '0'
-            - '1'
-
-'Neos.NodeTypes:ThreeColumn':
-  superTypes:
-    'Mindscreen.NodeTemplates.Demo:ColumnTemplateMixin': true
-  options:
-    template:
-      childNodes:
-        columns:
-          withItems:
-            - '0'
-            - '1'
-            - '2'
-
-'Neos.NodeTypes:FourColumn':
-  superTypes:
-    'Mindscreen.NodeTemplates.Demo:ColumnTemplateMixin': true
-  options:
-    template:
-      childNodes:
-        columns:
-          withItems:
-            - '0'
-            - '1'
-            - '2'
-            - '3'

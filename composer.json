@@ -1,10 +1,20 @@
 {
     "description": "Different Node Template examples, based on demo site.",
     "type": "neos-package",
-    "name": "mindscreen/neos-nodetemplates-demo",
+    "name": "mindscreen/neos-nodetemplatesdemo",
     "require": {
         "neos/neos-ui": "*",
         "neos/demo": "*",
-        "flowpack/nodetemplates": "*"
+        "flowpack/nodetemplates": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Mindscreen\\Neos\\NodeTemplatesDemo\\": "Classes"
+        }
+    },
+    "extra": {
+        "neos": {
+            "package-key": "Mindscreen.Neos.NodeTemplatesDemo"
+        }
     }
 }
